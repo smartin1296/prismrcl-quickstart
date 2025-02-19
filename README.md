@@ -184,21 +184,6 @@ Server responses:
 - `busy`: Processing another request
 - `error`: Request error
 
-## Enterprise Features
-
-Enterprise users get access to:
-- Docker container support
-- Multiple model loading on different ports
-- Network drive support
-- Advanced logging and monitoring
-- Automated deployment tools
-
-## Version Notes
-
-- Version 2.6.0 models are not backward compatible
-- Earlier version models won't work with 2.6.0
-- Docker support requires Enterprise license
-
 ## Tips for Success
 
 1. Name models descriptively: `dataset-type_v260_date.classify`
@@ -210,9 +195,3 @@ Enterprise users get access to:
 4. Check log files for detailed metrics
 5. Use `stopwhendone` for automated workflows
 
-## Getting Help
-
-- Check log files for detailed error messages
-- Contact support for technical assistance
-- Visit documentation portal for updates
-- Enterprise users: Contact your account manager for deployment help
