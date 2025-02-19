@@ -17,7 +17,7 @@ PrismRCL is a Windows-based AI classification algorithm that supports image, tex
 
 ## Installation
 
-1. Download the PrismRCL package
+1. [Download the PrismRCL package](https://lumina247.com/prismrcl-sign-up/)
 2. Unzip the files into a directory on your hard drive
 3. No additional installation is required
 
