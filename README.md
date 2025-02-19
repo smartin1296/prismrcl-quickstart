@@ -84,22 +84,75 @@ Parameters explained:
 ### Training a Text Classifier
 
 ```python
-# Setup script for text classification
 import os
 
-def create_text_dataset(base_dir):
-    # [Previous Python setup code remains the same]
-    pass
+# Base directory - change this to your desired location
+base_dir = r"C:\Users\sam\Desktop\lumina\prism-rcl-ent-v2.6.0"
 
-# Run training
-"""
-PrismRCL.exe llm naivebayes directional rclicks=67 readtextbyline 
-    data="C:\PrismRCL\data\llm-dataset\train-data" 
-    testdata="C:\PrismRCL\data\llm-dataset\test-data" 
-    savemodel="C:\PrismRCL\models\text-classifier.classify" 
-    log="C:\PrismRCL\logfiles\job_folder" 
-    stopwhendone
-"""
+# Create directory structure
+train_dir = os.path.join(base_dir, "data", "llm-dataset", "train-data")
+test_dir = os.path.join(base_dir, "data", "llm-dataset", "test-data")
+model_dir = os.path.join(base_dir, "models")
+log_dir = os.path.join(base_dir, "logfiles", "job_folder")
+
+# Create all necessary directories
+for directory in [
+    os.path.join(train_dir, "positive"),
+    os.path.join(train_dir, "negative"),
+    os.path.join(test_dir, "positive"),
+    os.path.join(test_dir, "negative"),
+    model_dir,
+    log_dir
+]:
+    os.makedirs(directory, exist_ok=True)
+
+# Training data
+train_positive = {
+    "review1.txt": "This movie was absolutely fantastic! The acting was superb.",
+    "review2.txt": "I loved every minute of this film. Great storyline and amazing effects.",
+    "review3.txt": "One of the best movies I've seen this year. Highly recommended!",
+    "review4.txt": "Outstanding performance by the entire cast. A must-watch!",
+    "review5.txt": "Brilliant direction and engaging plot from start to finish."
+}
+
+train_negative = {
+    "review1.txt": "I couldn't wait for this movie to end. Very disappointing.",
+    "review2.txt": "Poor writing and terrible pacing throughout the film.",
+    "review3.txt": "Save your money and skip this one. Not worth watching.",
+    "review4.txt": "The worst movie I've seen in years. Complete waste of time.",
+    "review5.txt": "Terrible acting and predictable plot. Would not recommend."
+}
+
+# Test data
+test_positive = {
+    "test1.txt": "An incredible cinematic experience. I was blown away!",
+    "test2.txt": "Such a wonderful film with amazing performances."
+}
+
+test_negative = {
+    "test1.txt": "Boring and poorly executed. Don't bother watching.",
+    "test2.txt": "Nothing original about this movie. Very disappointing."
+}
+
+# Function to write files
+def write_files(directory, files_dict):
+    for filename, content in files_dict.items():
+        with open(os.path.join(directory, filename), 'w') as f:
+            f.write(content)
+
+# Write all files
+write_files(os.path.join(train_dir, "positive"), train_positive)
+write_files(os.path.join(train_dir, "negative"), train_negative)
+write_files(os.path.join(test_dir, "positive"), test_positive)
+write_files(os.path.join(test_dir, "negative"), test_negative)
+
+print("Dataset creation complete!")
+print("\nCommand to run training:")
+print(f'"{os.path.join(base_dir, "PrismRCL.exe")}" llm naivebayes directional rclicks=67 readtextbyline ' + 
+      f'data="{train_dir}" ' +
+      f'testdata="{test_dir}" ' +
+      f'savemodel="{os.path.join(model_dir, "sentiment-model.classify")}" ' +
+      f'log="{log_dir}" stopwhendone')
 ```
 
 Parameters explained:
