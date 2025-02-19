@@ -70,8 +70,6 @@ PrismRCL.exe llm naivebayes directional rclicks=67 readtextbyline data="C:\Prism
 
 That's it! You've trained your first model. Check the log directory for accuracy metrics and results.
 
-For a complete working example, visit: [prismrcl-quickstart-textdata](https://github.com/smartin1296/prismrcl-quickstart-textdata)
-
 ---
 
 ## Advanced Usage Guide
