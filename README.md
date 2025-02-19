@@ -1,6 +1,6 @@
 # Getting Started with PrismRCL
 
-PrismRCL is a Windows-based AI classification algorithm that supports image, text, and tabular data classification. This guide will help you get started with basic setup and usage.
+PrismRCL is a Windows-based (AMD or Intel i-Series CPU) AI classification algorithm that supports image, text, and tabular data classification. This guide will help you get started with basic setup and usage.
 
 ## Installation
 
