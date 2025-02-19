@@ -6,7 +6,8 @@ PrismRCL is a Windows-based (AMD or Intel CPU) AI classification algorithm that 
 
 1. Download the PrismRCL package at https://lumina247.com/prismrcl-sign-up/
 2. Unzip the files into a directory on your hard drive
-3. No additional installation is required
+3. Click "Activate.exe" and select authenticate for 30 days
+4. No additional installation is required
 
 Note: PrismRCL is a command-line tool designed for developers to build applications and scripts. It doesn't include an interactive user interface.
 
